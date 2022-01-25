@@ -1,7 +1,7 @@
 import "./App.css";
-import App from "./components/Appbar";
+import Appbar from "./components/Appbar";
 
-function Appbar() {
+function App() {
   return (
     <div className="App">
       <Appbar />
