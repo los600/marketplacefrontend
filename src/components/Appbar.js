@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import App from ''
 
 
 export default function Appbar() {
@@ -21,7 +22,7 @@ export default function Appbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            E-commerce
+            MerketPlace
           </Typography>
         </Toolbar>
       </AppBar>
