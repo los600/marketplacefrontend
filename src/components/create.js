@@ -72,7 +72,7 @@ export default function Create() {
             
             {product.map(product=>(
                 <Paper elevation={6} style={{margin:"10px", textAlign:"left", padding:"px"}} key={product.id}>
-                    Id:{product.id}<br/>
+                    
                     Name:{product.name}<br/>
                     Price:{product.price}
                 </Paper>
