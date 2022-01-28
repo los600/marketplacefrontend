@@ -33,7 +33,7 @@ export default function Create() {
   return (
     <Container>
       <Paper elevation={3} style={paperStyle}>
-        <h1 style={{ color: "blue" }}>Create Product</h1>
+        <h1 style={{ color: "black" }}>Create Product</h1>
         <form className={classes.root} noValidate autoComplete="off">
           <TextField
             id="outlined-basic"
