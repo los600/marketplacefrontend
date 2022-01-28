@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Container, Paper, Button } from "@material-ui/core";
@@ -15,7 +15,10 @@ export default function Create() {
   const paperStyle = { padding: "50px 20px", width: 600, margin: "20px auto" };
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const[product, setProduct]=useState([]);
   const classes = useStyles();
+  
+  
   const handleClick = (e) => {
     e.preventDefault();
     const Product = { name, price };
@@ -29,6 +32,15 @@ export default function Create() {
       console.log("New Product added");
     });
   };
+
+  useEffect(()=>{
+    fetch("http://localhost:8080/product/getAll")
+    .then(res=>res.json())
+    .then((result)=>{
+        setProduct(result);
+    }
+  )
+  },[])
 
   return (
     <Container>
@@ -55,7 +67,19 @@ export default function Create() {
             Submit
           </Button>
         </form>
+        
+        <Paper elevation={3} style={paperStyle}>
+            
+            {product.map(product=>(
+                <Paper elevation={6} style={{margin:"10px", textAlign:"left", padding:"px"}} key={product.id}>
+                    Id:{product.id}<br/>
+                    Name:{product.name}<br/>
+                    Price:{product.price}
+                </Paper>
+            ))}
+        </Paper>
       </Paper>
+      
     </Container>
   );
 }
