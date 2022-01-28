@@ -71,7 +71,7 @@ export default function Create() {
         <Paper elevation={3} style={paperStyle}>
             
             {product.map(product=>(
-                <Paper elevation={6} style={{margin:"10px", textAlign:"left", padding:"px"}} key={product.id}>
+                <Paper elevation={6} style={{margin:"10px", textAlign:"left", padding:"15px"}} key={product.id}>
                     
                     Name:{product.name}<br/>
                     Price:{product.price}

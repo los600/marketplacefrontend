@@ -1,4 +1,4 @@
-import * as React from 'react';
+//import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -15,7 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Container, Paper, Button } from '@material-ui/core';
-
+import React, { useEffect, useState } from "react";
 
 
 
@@ -33,6 +33,10 @@ const ExpandMore = styled((props) => {
 export default function Product() {
  
   const paperStyle={margin:'50px'};
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const[product, setProduct]=useState([]);
+
 
  
 
@@ -50,10 +54,11 @@ export default function Product() {
                     subheader="September 14, 2016"
                 />
                 <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                    name="{}",
-                    price="{}"
-                    </Typography>
+                {product.map(product=>(
+                    <Typography variant="body2" color="text.secondary" key={product.id}>
+                    name="{product.name}",
+                    price="{product.price}",
+                    </Typography>))};
                 </CardContent>
 
                 <Button variant="outlined" color="success">Edit</Button>
@@ -67,6 +72,16 @@ export default function Product() {
                 </CardActions>
             </Card>
         </Paper>
+
     </Container>
   );
 }
+{/* <Paper elevation={3} style={paperStyle}>
+            
+            {product.map(product=>(
+                <Paper elevation={6} style={{margin:"10px", textAlign:"left", padding:"px"}} key={product.id}>
+                    
+                    Name:{product.name}<br/>
+                    Price:{product.price}
+                </Paper>
+ */}
